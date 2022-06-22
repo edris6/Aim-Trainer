@@ -13,7 +13,14 @@ let timeleft = 15;
 let clickedprs = 0;
 let alwaystrue = true;
 let record;
-let alltimere
+let alltimere;
+if(alltimere == undefined){
+	alltimere = 0;
+}else{
+	getCookie("record");
+}
+
+
 
 function getCookie(name) {
 	const value = `; ${document.cookie}`;
@@ -101,9 +108,10 @@ var timergame = setInterval(function () {
 		if(clicked > alltimere){
 			alltimere = clicked
 			
-			record = getCookie("record");//"bobthegreat@gmail.com"
+			record = getCookie("record");
 			
-			document.cookie = "record=" + alltimere + "; expires=Thu, 18 Dec 2013 12:00:00 UTC"; 
+			document.cookie = "record=" + alltimere + "; expires=Tues, 18 Dec 3068 12:00:00 UTC"; 
+			console.log(document.cookie)
 			
 		}
 		clickedprs = clicked;
