@@ -1,0 +1,22 @@
+@font-face {
+	font-family: myFirstFont;
+	src: url(/Titillium_Web/TitilliumWeb-Light.ttf);
+}
+@font-face {
+	font-family: justfont;
+	src: url(/Titillium_Web/TitilliumWeb-Bold.ttf);
+}
+
+
+.mid{
+    /* width: 200px; */
+    height: auto;position:fixed;
+    bottom: 0px;
+    left: 46%;
+    font-size: 1.3vw;
+    font-family: myFirstFont;
+}
+
+.bigletter{
+    font-family: justfont;
+}
