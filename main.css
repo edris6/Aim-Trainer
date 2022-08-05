@@ -1,10 +1,10 @@
 @font-face {
 	font-family: myFirstFont;
-	src: url(/Titillium_Web/TitilliumWeb-Light.ttf);
+	src: url(./fonts/Titillium_Web/TitilliumWeb-Light.ttf);
 }
 @font-face {
 	font-family: justfont;
-	src: url(/Titillium_Web/TitilliumWeb-Bold.ttf);
+	src: url(./fonts/Titillium_Web/TitilliumWeb-Bold.ttf);
 }
 
 
