@@ -53,6 +53,10 @@ function draw() {
 	background(255);
 	if (playings == true && cheaterr == false) {playing()}else if (playings == false && cheaterr == false) {notplaying()}
 	if (windowHeightb != windowHeight || windowWidthb != windowWidth) {changescreen()}
+	// makes sure he doesnt delete the cookie
+	if(cheaterr == true){
+	    document.cookie = `record=cheated; expires=Tues, 18 Dec 3068 12:00:00 UTC`; 
+	}
 }
 //when mouseclicked on the square adds the new clicked, and calls the changeposition function
 function mouseClicked() {
@@ -75,6 +79,10 @@ function changeposition() {
 function starts() {playings = true;}
 
 var timergame = setInterval(function () {
+	//check for ban
+	if(getCookie("record") == "cheated" && cheaterr == false){
+		cheaterrr();
+	}
 	//if not playing, dont count, if so count
 	if(!playings){return;}else{timeleft -= 1; previoustime -= 1};
 	//just to know
@@ -84,6 +92,8 @@ var timergame = setInterval(function () {
 		previoustime = timeleft + 1
 		console.log(previoustime)
 	}
+	//countdown timer
+	document.getElementById("beforesss").innerHTML = timeleft + 1;
 	if (timeleft <= 0) {
 		//stops playing
 		playings = false;
@@ -112,7 +122,7 @@ var timergame = setInterval(function () {
 		
 }, 1000);
 
-//puts playing false, cheatter as true, and plays rick roll
+//puts playing false, cheatter as true, and plays rick roll,texts become saying cheated
 function cheaterrr(){
 	let once = false;
 	playings = false;
@@ -127,6 +137,8 @@ function cheaterrr(){
 	document.getElementById("alltime").innerHTML = "CHEATER";
 	document.getElementById("beforesss").innerHTML = "CHEATER";
 	button.hide;
+	// adds the cookie as cheated
+	document.cookie = `record=cheated; expires=Tues, 18 Dec 3068 12:00:00 UTC`; 
 	
 }
 
@@ -138,7 +150,7 @@ function playing(){
 	button.hide();
 	document.getElementById("recordsession").innerHTML = "";
 	document.getElementById("alltime").innerHTML = "";
-	document.getElementById("beforesss").innerHTML = "";
+	document.getElementById("beforesss").innerHTML = timeleft;
 }
 
 function notplaying(){
